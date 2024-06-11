@@ -2,7 +2,7 @@ FROM python:3
 
 #Set enviroment variables
 ENV PYTHONBUFFERED=1
-ENV PORT 8080
+ENV PORT 3000
 
 #Working dir
 WORKDIR /app
@@ -12,6 +12,8 @@ COPY requirements.txt ./
 #Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install --upgrade pip
+RUN pip install python-dotenv
+
 
 #Copy Django Project
 COPY . /app/
