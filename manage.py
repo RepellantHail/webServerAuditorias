@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+import importlib
 
 def main():
     """Run administrative tasks."""
@@ -16,7 +16,11 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
-
-
+    try: 
+        from server.webserver_app import app_config  
+        print("App imported successfully!")
+    except ModuleNotFoundError:
+        print("ModuleNotFoundError: webserver_app")
+        
 if __name__ == '__main__':
     main()
