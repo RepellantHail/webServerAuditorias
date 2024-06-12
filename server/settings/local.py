@@ -25,6 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+from server.settings import get_secret
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -75,14 +76,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'server.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Get sensitive information from environment variables
+DB_NAME = os.environ.get('DB_NAME')
+DB_USER_NM = os.environ.get('DB_USER_NM')
+DB_USER_PW = os.environ.get('DB_USER_PW')
+DB_IP = os.environ.get('DB_IP')
+DB_PORT = os.environ.get('DB_PORT')
+
+# Database info
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DB_NAME,
+        'USER': DB_USER_NM,
+        'PASSWORD': DB_USER_PW,
+        'HOST': DB_IP,
+        'PORT': DB_PORT,
+        # 'OPTIONS': {
+        #     "service": "my_service",
+        #     "passfile": ".my_pgpass",
+        # },
     }
 }
 
@@ -109,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-mx'
 
 TIME_ZONE = 'UTC'
 
