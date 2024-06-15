@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.8.2'
 
 services:
   db: 
@@ -6,7 +6,7 @@ services:
     restart: always
     container_name: postgresql
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -24,6 +24,8 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
     depends_on:
       - db
 
@@ -46,4 +48,4 @@ services:
 
 volumes:
   postgres_data:
-    # - ./data/db:/var/lib/postgresql/data
+  pgadmin_data:
