@@ -39,7 +39,8 @@ services:
     # command: ["sh", "-c", "npm install -g nodemon && gunicorn server.wsgi:application --bind 0.0.0.0:8000"]
     # command: ["sh", "-c", "gunicorn server.wsgi:application --bind 0.0.0.0:8000"]    
     # command: ["sh", "-c", "nodemon --exec 'gunicorn server.wsgi:application --bind 0.0.0.0:8000'"]
-    command: ["/usr/local/bin/nodemon", "--exec", "gunicorn server.wsgi:application --bind 0.0.0.0:8000"]
+    # command: ["/usr/local/bin/nodemon", "--exec", "gunicorn server.wsgi:application --bind 0.0.0.0:8000"]
+    command: ["/usr/local/bin/nodemon", "--watch", "/app", "--ext", "py", "--exec", "gunicorn server.wsgi:application --bind 0.0.0.0:8000"]
     volumes:
       - .:/app
     ports:

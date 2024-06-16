@@ -12,7 +12,6 @@ WORKDIR /app
 COPY requirements.txt ./
 COPY package*.json ./
 
-
 #Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install --upgrade pip
@@ -46,4 +45,4 @@ RUN which nodemon
 # Start the server with nodemon to reload on changes
 # CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 # CMD ["gunicorn", "server.wsgi:application", "--bind", "0.0.0.0:8000"]
-CMD ["sh", "-c", "/usr/local/bin/nodemon --exec 'gunicorn server.wsgi:application --bind 0.0.0.0:8000'"]
+CMD ["sh", "-c", "/usr/local/bin/nodemon --watch . --ext py --exec 'gunicorn server.wsgi:application --bind 0.0.0.0:8000'"]
