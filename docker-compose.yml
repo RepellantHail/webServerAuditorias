@@ -19,7 +19,7 @@ services:
       - webserverauditorias_default
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:8.8
     container_name: pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: jearimmodesto@gmail.com
