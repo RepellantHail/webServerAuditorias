@@ -5,4 +5,4 @@ from django.conf import settings
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Hello, World!")
+    return HttpResponse("Hello, World!. this is a test for django")
