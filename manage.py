@@ -17,7 +17,7 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
     try: 
-        from server.webserver_app import app_config  
+        from server.webserver_app import WebserverConfig  
         print("App imported successfully!")
     except ModuleNotFoundError:
         print("ModuleNotFoundError: webserver_app")

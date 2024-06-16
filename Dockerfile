@@ -15,6 +15,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install --upgrade pip
 RUN pip install python-dotenv
 
+# Install necessary packages
+RUN apt-get update && apt-get install -y postgresql-client
+
 # Freeze the installed packages into requirements.txt
 RUN pip freeze > requirements.txt
 

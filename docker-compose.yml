@@ -1,4 +1,4 @@
-version: '3.8.2'
+version: '3.0'
 
 services:
   db: 
@@ -14,7 +14,9 @@ services:
     ports:
       - "${DB_PORT}:5432"
     env_file:
-      - .env 
+      - .env
+    networks:
+      - webserverauditorias_default
 
   pgadmin:
     image: dpage/pgadmin4
@@ -28,6 +30,8 @@ services:
       - pgadmin_data:/var/lib/pgadmin
     depends_on:
       - db
+    networks:
+      - webserverauditorias_default
 
   web:
     build: .
@@ -45,7 +49,13 @@ services:
       - .env
     depends_on:
       - db
+    networks:
+      - webserverauditorias_default
 
 volumes:
   postgres_data:
   pgadmin_data:
+
+networks:
+  webserverauditorias_default:
+    driver: bridge
