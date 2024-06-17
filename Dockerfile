@@ -24,6 +24,9 @@ RUN pip install node
 RUN apt-get update && apt-get install -y nodejs npm
 RUN npm install -g nodemon
 
+# Install Bootstrap
+RUN npm i bootstrap@5.3.3
+
 # Install necessary packages
 RUN apt-get update && apt-get install -y postgresql-client
 
