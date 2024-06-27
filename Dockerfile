@@ -48,4 +48,9 @@ RUN which nodemon
 # Start the server with nodemon to reload on changes
 # CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 # CMD ["gunicorn", "server.wsgi:application", "--bind", "0.0.0.0:8000"]
-CMD ["sh", "-c", "/usr/local/bin/nodemon --watch . --ext py --exec 'gunicorn server.wsgi:application --bind 0.0.0.0:8000'"]
+# CMD ["sh", "-c", "/usr/local/bin/nodemon --watch . --ext py, html --exec 'gunicorn server.wsgi:application --bind 0.0.0.0:8000'"]
+# CMD ["sh", "-c", "nodemon --watch . --ext py,html --exec 'gunicorn server.wsgi:application --bind 0.0.0.0:8000'"]
+# CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:8000"]
+# CMD ["sh", "-c", "/usr/local/bin/nodemon --watch . --ext py,html --exec 'python manage.py runserver 0.0.0.0:8000'"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
