@@ -42,7 +42,7 @@ services:
     # command: ["/usr/local/bin/nodemon", "--exec", "gunicorn server.wsgi:application --bind 0.0.0.0:8000"]
     # command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
     # command: ["/usr/local/bin/nodemon", "--watch", "/app", "--ext", "py,html", "--exec", "python manage.py runserver 0.0.0.0:8000"]
-    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+   # command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
     volumes:
       - .:/app
